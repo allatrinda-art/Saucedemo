@@ -9,6 +9,8 @@ public class CheckoutPage extends BasePage{
     public static final By LAST_NAME = By.id("last-name");
     public static final By ZIP_CODE = By.id("postal-code");
     public static final By CONTINUE_BUTTON = By.cssSelector(".cart_button");
+    public static final By ERROR_MESSAGE_ON_CHECKOUT = By.cssSelector("[data-test=error]");
+
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
@@ -23,5 +25,9 @@ public class CheckoutPage extends BasePage{
         driver.findElement(LAST_NAME).sendKeys(lastName);
         driver.findElement(ZIP_CODE).sendKeys(String.valueOf(zip));
         driver.findElement(CONTINUE_BUTTON).click();
+    }
+
+    public String getErrorMessageOnCheckout() {
+        return driver.findElement(ERROR_MESSAGE_ON_CHECKOUT).getText();
     }
 }

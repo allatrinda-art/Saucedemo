@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest{
         loginPage.login("standard_user", "123");
         Assert.assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Username and password do not match any user in this service",
-                "message");
+                "no messages/errors");
 
         //boolean homeText = driver.findElement(By.cssSelector(".product_label")).isDisplayed();//cssSelector("product_label").getText();но boolean
         //Assert.assertTrue(homeText, "Products");
@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest{
         loginPage.login("", "123");
         Assert.assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Username is required",
-                "message");
+                "no messages/errors");
 
         //boolean homeText = driver.findElement(By.cssSelector(".product_label")).isDisplayed();//cssSelector("product_label").getText();но boolean
         //Assert.assertTrue(homeText, "Products");

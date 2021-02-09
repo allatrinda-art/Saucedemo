@@ -52,4 +52,6 @@ public class ProductsTest extends BaseTest{
         assertEquals(cartPage.getNumberProducts(), 1, "no items were added");
         assertEquals(cartPage.findProductName(), "Sauce Labs Backpack", "no such item in the cart");
     }
+
+
 }
