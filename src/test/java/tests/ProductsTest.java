@@ -27,8 +27,8 @@ public class ProductsTest extends BaseTest{
         cartPage.open();
         checkoutPage.proceedToCheckout();
         checkoutPage.proceedToConfirmationPage("Alex", "York", 123456);
-        assertEquals(confirmationPage.paidItems(), 3, "не все товары оплачены");
-        confirmationPage.finishTheOrder();
+        assertEquals(checkoutPage.paidItems(), 3, "не все товары оплачены");
+        checkoutPage.finishOrder();
         assertEquals(confirmationPage.completeMessageAppears(), "THANK YOU FOR YOUR ORDER", "order failed");
     }
 
@@ -54,6 +54,4 @@ public class ProductsTest extends BaseTest{
         assertEquals(cartPage.getNumberProducts(), 1, "no items were added");
         assertEquals(cartPage.findProductName(), "Sauce Labs Backpack", "no such item in the cart");
     }
-
-
 }
