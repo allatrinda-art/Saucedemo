@@ -18,7 +18,7 @@ public class ProductsTest extends BaseTest{
     }
 
     @Test
-    public void ItemsArePaid() {
+    public void orderPlaced() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.addProductToCart("Sauce Labs Backpack");
@@ -28,6 +28,8 @@ public class ProductsTest extends BaseTest{
         checkoutPage.proceedToCheckout();
         checkoutPage.proceedToConfirmationPage("Alex", "York", 123456);
         assertEquals(confirmationPage.paidItems(), 3, "не все товары оплачены");
+        confirmationPage.finishTheOrder();
+        assertEquals(confirmationPage.completeMessageAppears(), "THANK YOU FOR YOUR ORDER", "order failed");
     }
 
     @Test
