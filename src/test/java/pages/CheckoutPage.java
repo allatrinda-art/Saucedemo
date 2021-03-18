@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CheckoutPage extends BasePage{
-    public static final By CHECKOUT_BUTTON = By.cssSelector(".checkout_button");
     public static final By FIRST_NAME = By.id("first-name");
     public static final By LAST_NAME = By.id("last-name");
     public static final By ZIP_CODE = By.id("postal-code");
@@ -18,15 +17,13 @@ public class CheckoutPage extends BasePage{
         super(driver);
     }
 
-    public void proceedToCheckout() {
-        driver.findElement(CHECKOUT_BUTTON).click();
-    }
-
-    public void proceedToConfirmationPage(String firstName, String lastName, Integer zip) {
+    public ConfirmationPage proceedToConfirmationPage(String firstName, String lastName, Integer zip) {
+        //какую страницу указать?
         driver.findElement(FIRST_NAME).sendKeys(firstName);
         driver.findElement(LAST_NAME).sendKeys(lastName);
         driver.findElement(ZIP_CODE).sendKeys(String.valueOf(zip));
         driver.findElement(CONTINUE_BUTTON).click();
+        return new ConfirmationPage(driver);//создали один объект, вернули ???
     }
 
     public String getErrorMessageOnCheckout() {
