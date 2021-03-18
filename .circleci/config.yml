@@ -45,7 +45,7 @@ workflows:
   version: 2
   commit:
     jobs:
-      - ui-tests
+      - Selenium-tests
   periodical:
     triggers:
       - schedule:
