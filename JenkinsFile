@@ -8,7 +8,7 @@ pipeline {
 
     parameters {
         gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
-        choice(name: 'BROWSER', choices: ['chrome', 'firefox', "ie"], description: 'no browser selected')
+        choice(name: 'BROWSER', choices: ['chrome', 'firefox', "ie"], description: 'select the browser')
     }
 
     stages {
