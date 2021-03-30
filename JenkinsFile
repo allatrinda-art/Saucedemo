@@ -8,6 +8,7 @@ pipeline {
 
     parameters {
         gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
+        choice(name: 'BROWSER', choices: ['chrome', 'firefox', "ie"], description: 'no browser selected')
     }
 
     stages {
@@ -17,7 +18,7 @@ pipeline {
                 git branch: "${params.BRANCH}", url: 'https://github.com/allatrinda-art/Saucedemo.git'
 
                 // To run Maven on a Windows agent, use
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                bat "mvn -Dmaven.test.failure.ignore=true clean package -Dbrowser=${params.BRANCH}"
             }
 
             post {
